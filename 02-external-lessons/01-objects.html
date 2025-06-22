@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objects in JavaScript</title>
+  </head>
+  <body>
+    <script>
+      const products = {
+        name: "shirt",
+        "delivery-time": 3,
+        ratings: {
+          stars: 5,
+          reviews: 87,
+        },
+        fun: function product2() {
+          console.log("This is part of product 1");
+        },
+      };
+      // JSON
+      //Json is similar to Objects in JS. Only difference is that JSON has limited features.
+      //Json cannot have functions.
+      // Json is understood by every language and is used to communicate between different computers and even codebases with different langauges coz JSON is sort of universal language to talk. Like English for humans.
+      // We also use JSON to store Data
+
+      // converts objects to json
+      const jsonData = JSON.stringify(products);
+      console.log(jsonData);
+
+      // convert JSON to javascript objects
+      const objectData = JSON.parse(jsonData);
+      console.log(objectData);
+
+      // Local Storage
+      // This helps us store our values a bit more permanently.
+      // Until now I have only used Variables to store data. But it is temporary.
+      // When we refresh the page or close and open the app, the data is lost since, variables free up space when not in use.
+      //
+    </script>
+  </body>
+</html>

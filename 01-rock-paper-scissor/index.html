@@ -30,13 +30,21 @@
     </button>
     <button onclick="resetScores()">Reset Scores</button>
     <script>
-      let score = JSON.parse(localStorage.getItem("scores"));
+      let score = JSON.parse(localStorage.getItem("scores")) || {
+        wins: 0,
+        losses: 0,
+        ties: 0,
+      };
 
+      // // NULL VALUE CHECK HUMBLED ME
+      // if (score === null || score === undefined) {
+      //   score = resetScores();
+      // }
       function resetScores() {
         score.wins = 0;
         score.losses = 0;
         score.ties = 0;
-        localStorage.removeItem("score");
+        localStorage.setItem("scores", JSON.stringify(score));
         alert(
           `Scores have been reset to Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`
         );

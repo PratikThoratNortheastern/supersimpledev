@@ -36,6 +36,7 @@
         score.wins = 0;
         score.losses = 0;
         score.ties = 0;
+        localStorage.removeItem("score");
         alert(
           `Scores have been reset to Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`
         );

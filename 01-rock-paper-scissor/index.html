@@ -5,36 +5,44 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <p>Rock Paper Scissors</p>
+    <p class="title">Rock Paper Scissors</p>
     <button
       onclick="
       playGame('rock');
     "
+      class="move-button"
     >
-      Rock
+      <img class="move-icon" src="assets/rock-emoji.png" />
     </button>
 
     <button
       onclick="
       playGame('paper');
     "
+      class="move-button"
     >
-      Paper
+      <img class="move-icon" src="assets/paper-emoji.png" />
     </button>
 
     <button
       onclick="
       playGame('scissors');
     "
+      class="move-button"
     >
-      Scissors
+      <img class="move-icon" src="assets/scissors-emoji.png" />
     </button>
 
-    <p class="js-result"></p>
-    <p class="js-moves"></p>
+    <p class="js-result result"></p>
+    <p class="js-moves css-moves">
+      <!-- You
+      <img class="move-icon" src="assets/rock-emoji.png" />
+      <img class="move-icon" src="assets/scissors-emoji.png" />
+      Computer -->
+    </p>
     <p class="js-score"></p>
 
-    <button onclick="resetScores()">Reset Scores</button>
+    <button onclick="resetScores()" class="reset-scores">Reset Scores</button>
     <script>
       let score = JSON.parse(localStorage.getItem("scores")) || {
         wins: 0,
@@ -107,10 +115,15 @@
         // document.querySelector("js-result").innerHTML = result;
         updateScoreElement();
 
-        document.querySelector("js-result").innerHTML = `${result}`;
-        document.querySelector(
-          "js-moves"
-        ).innerHTML = `You ${playerMove} - ${computerMove}`;
+        document.querySelector(".js-result").innerHTML = `${result}`;
+        // document.querySelector(
+        //   ".js-moves"
+        // ).innerHTML = `You <img class = "move-icon" src="assets/${playerMove}-emoji.png/> - <img class = "move-icon" src="assets/${computerMove}-emoji.png/>`;
+        document.querySelector(".js-moves").innerHTML = `
+          Player: <img class="move-icon" src="assets/${playerMove}-emoji.png" />
+          Computer: <img class="move-icon" src="assets/${computerMove}-emoji.png" />
+        `;
+
         // alert(
         //   `  You picked ${playerMove}. Computer picked ${computerMove}. ${result}
         //    Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`

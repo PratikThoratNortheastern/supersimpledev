@@ -5,28 +5,18 @@ let score = JSON.parse(localStorage.getItem("scores")) || {
   ties: 0,
 };
 
-// score
-// document.querySelector(
-//   ".js-score"
-// ).innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
 updateScoreElement();
-// // NULL VALUE CHECK HUMBLED ME
-// if (score === null || score === undefined) {
-//   score = resetScores();
-// }
+
 function resetScores() {
   score.wins = 0;
   score.losses = 0;
   score.ties = 0;
   localStorage.setItem("scores", JSON.stringify(score));
   updateScoreElement();
+  document.querySelector(".js-moves").innerHTML = "";
+  document.querySelector(".js-result").innerHTML = "";
   return score;
-  // alert(
-  //   `Scores have been reset to Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`
-  // );
 }
-
-// console.log(localStorage.getItem("scores"));
 
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
@@ -66,23 +56,15 @@ function playGame(playerMove) {
   }
 
   localStorage.setItem("scores", JSON.stringify(score));
-  // console.log(localStorage.setItem("scores", JSON.stringify(score)));
-  // document.querySelector("js-result").innerHTML = result;
+
   updateScoreElement();
 
   document.querySelector(".js-result").innerHTML = `${result}`;
-  // document.querySelector(
-  //   ".js-moves"
-  // ).innerHTML = `You <img class = "move-icon" src="assets/${playerMove}-emoji.png/> - <img class = "move-icon" src="assets/${computerMove}-emoji.png/>`;
+
   document.querySelector(".js-moves").innerHTML = `
           Player: <img class="move-icon" src="assets/${playerMove}-emoji.png" />
           Computer: <img class="move-icon" src="assets/${computerMove}-emoji.png" />
         `;
-
-  // alert(
-  //   `  You picked ${playerMove}. Computer picked ${computerMove}. ${result}
-  //    Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`
-  // );
 }
 
 function updateScoreElement() {

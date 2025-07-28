@@ -3,9 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Arrays and Loops</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✅</text></svg>"
+    />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <script src="./scripts/app.js" defer></script>
+    <title>Task Management</title>
   </head>
   <body>
-    <script></script>
+    <main class="main">
+      <h2 class="app-title">Task Management</h2>
+      <div class="task-input-grid">
+        <input
+          type="text"
+          placeholder="Task Name"
+          class="js-input-name task-name-input"
+        />
+        <input
+          type="date"
+          placeholder="yyyy-mm-dd"
+          class="js-due-date-input due-date-input"
+        />
+        <button class="add-task-button" onclick="addTask()">Add Task</button>
+      </div>
+      <div class="js-task-name task-list-grid"></div>
+    </main>
   </body>
 </html>

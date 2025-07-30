@@ -23,7 +23,6 @@ function addTask() {
   const dueDateElement = document.querySelector(".js-due-date-input");
   const taskNameValue = inputElement.value.trim();
   const dueDateValue = dueDateElement.value;
-
   if (!taskNameValue || !dueDateValue) {
     alert("Please enter both task name and due date!");
   } else {
@@ -31,11 +30,11 @@ function addTask() {
       name: taskNameValue,
       dueDate: dueDateValue,
     });
-    inputElement.value = "";
-    dueDateElement.value = "";
-    localStorage.setItem("taskList", JSON.stringify(taskList));
-    renderTask();
   }
+  inputElement.value = "";
+  dueDateElement.value = "";
+  localStorage.setItem("taskList", JSON.stringify(taskList));
+  renderTask();
 }
 
 function deleteTask(index) {
@@ -43,4 +42,5 @@ function deleteTask(index) {
   localStorage.setItem("taskList", JSON.stringify(taskList));
   renderTask();
 }
-// Load from local storage when the page loads
+
+console.log();

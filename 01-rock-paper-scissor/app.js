@@ -88,3 +88,21 @@ function pickComputerMove() {
 
   return computerMove;
 }
+
+let isAutoPlay = false;
+let intervalID;
+function autoPlay() {
+  const autoPlayButton = document.querySelector(".auto-play");
+  if (!isAutoPlay) {
+    intervalID = setInterval(() => {
+      const playerMove = pickComputerMove();
+      playGame(playerMove);
+    }, 1000);
+    isAutoPlay = true;
+    autoPlayButton.textContent = "Stop Auto Play";
+  } else {
+    clearInterval(intervalID);
+    isAutoPlay = false;
+    autoPlayButton.textContent = "Auto Play";
+  }
+}

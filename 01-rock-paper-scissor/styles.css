@@ -35,9 +35,11 @@ body {
   margin-top: 50px;
 }
 
-.reset-scores {
+.reset-scores,
+.auto-play {
   background-color: white;
   border: none;
   font-size: 15px;
   padding: 8px 15px;
+  cursor: pointer;
 }

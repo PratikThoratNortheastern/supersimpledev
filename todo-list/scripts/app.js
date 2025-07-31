@@ -4,17 +4,26 @@ renderTask();
 function renderTask() {
   let taskListHTML = ``;
 
-  for (let index = 0; index < taskList.length; index++) {
-    const taskObject = taskList[index];
-    // const taskName = taskObject.name;
-    // const taskDueDate = taskObject.dueDate;
+  taskList.forEach(function (taskObject, index) {
     const { name: taskName, dueDate: taskDueDate } = taskObject;
     let html = `
     <div>${taskName}</div>
     <div>${taskDueDate}</div>
     <button class="delete-task-button" onclick="deleteTask(); renderTask();">Delete Task</button>`;
     taskListHTML += html;
-  }
+  });
+
+  // for (let index = 0; index < taskList.length; index++) {
+  //   const taskObject = taskList[index];
+  //   // const taskName = taskObject.name;
+  //   // const taskDueDate = taskObject.dueDate;
+  //   const { name: taskName, dueDate: taskDueDate } = taskObject;
+  //   let html = `
+  //   <div>${taskName}</div>
+  //   <div>${taskDueDate}</div>
+  //   <button class="delete-task-button" onclick="deleteTask(); renderTask();">Delete Task</button>`;
+  //   taskListHTML += html;
+  // }
   document.querySelector(".js-task-name").innerHTML = taskListHTML;
 }
 
